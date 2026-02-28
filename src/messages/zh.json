@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "首页",
+    "browse": "浏览 Skills",
+    "submit": "提交 Skill",
+    "api": "API"
+  },
+  "home": {
+    "hero": {
+      "title": "Agent Skills 市场",
+      "subtitle": "发现、分享并安装 Claude Code 智能体 skills，为你的 AI 工作流赋能。",
+      "browse_cta": "浏览 Skills",
+      "submit_cta": "提交 Skill"
+    },
+    "featured": {
+      "title": "精选 Skills",
+      "view_all": "查看全部"
+    },
+    "stats": {
+      "skills": "Skills",
+      "downloads": "安装次数",
+      "contributors": "贡献者"
+    }
+  },
+  "browse": {
+    "title": "浏览 Skills",
+    "search_placeholder": "搜索 skills...",
+    "filter_role": "按角色筛选",
+    "all_roles": "所有角色",
+    "no_results": "未找到 Skills",
+    "no_results_hint": "尝试调整搜索条件或筛选器"
+  },
+  "skill_card": {
+    "install": "安装",
+    "view": "查看详情",
+    "downloads": "{count} 次安装"
+  },
+  "skill_detail": {
+    "install_title": "安装此 Skill",
+    "copy_command": "复制命令",
+    "copied": "已复制！",
+    "source": "源代码",
+    "author": "作者",
+    "tags": "标签",
+    "role": "适用角色",
+    "downloads": "安装次数",
+    "back": "返回浏览"
+  },
+  "submit": {
+    "title": "提交 Skill",
+    "subtitle": "与社区分享你的 skill。所有提交都经过审核后才会上架。",
+    "form": {
+      "name": "Skill 名称",
+      "name_placeholder": "例如：systematic-debugging",
+      "description": "描述（英文）",
+      "description_placeholder": "这个 skill 做什么？",
+      "description_zh": "描述（中文，可选）",
+      "description_zh_placeholder": "可选：用中文描述该 skill",
+      "role": "适用角色",
+      "role_placeholder": "选择角色",
+      "tags": "标签",
+      "tags_placeholder": "debugging, api, testing（用逗号分隔）",
+      "install_command": "安装命令",
+      "install_placeholder": "claude skills install skills.sh/your-skill",
+      "source_url": "GitHub 源码地址",
+      "source_url_placeholder": "https://github.com/author/repo",
+      "author": "你的名称 / 昵称",
+      "author_placeholder": "GitHub 用户名或显示名",
+      "author_url": "个人主页地址（可选）",
+      "author_url_placeholder": "https://github.com/username",
+      "submit": "提交审核",
+      "submitting": "提交中..."
+    },
+    "success": {
+      "title": "提交成功！",
+      "message": "感谢你的贡献！你的 skill 正在审核中，审核通过后将出现在市场中。"
+    },
+    "error": "提交失败，请重试。"
+  },
+  "roles": {
+    "pm": "产品经理",
+    "frontend-dev": "前端开发",
+    "backend-dev": "后端开发",
+    "qa": "QA 工程师",
+    "devops": "DevOps",
+    "designer": "UI/UX 设计师",
+    "general": "通用"
+  },
+  "footer": {
+    "tagline": "为智能体时代而生",
+    "api_link": "API 文档",
+    "github_link": "GitHub"
+  },
+  "errors": {
+    "not_found": "页面未找到",
+    "server_error": "出了点问题",
+    "back_home": "返回首页"
+  }
+}

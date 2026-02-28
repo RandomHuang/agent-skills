@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body {
+  background: #030712;
+  color: #f9fafb;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+  .input-field {
+    @apply w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors;
+  }
+}

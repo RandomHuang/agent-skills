@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "browse": "Browse Skills",
+    "submit": "Submit Skill",
+    "api": "API"
+  },
+  "home": {
+    "hero": {
+      "title": "Agent Skills Marketplace",
+      "subtitle": "Discover, share, and install Claude Code agent skills. Power up your AI workflows.",
+      "browse_cta": "Browse Skills",
+      "submit_cta": "Submit a Skill"
+    },
+    "featured": {
+      "title": "Featured Skills",
+      "view_all": "View All"
+    },
+    "stats": {
+      "skills": "Skills",
+      "downloads": "Downloads",
+      "contributors": "Contributors"
+    }
+  },
+  "browse": {
+    "title": "Browse Skills",
+    "search_placeholder": "Search skills...",
+    "filter_role": "Filter by role",
+    "all_roles": "All Roles",
+    "no_results": "No skills found",
+    "no_results_hint": "Try adjusting your search or filter"
+  },
+  "skill_card": {
+    "install": "Install",
+    "view": "View Details",
+    "downloads": "{count} downloads"
+  },
+  "skill_detail": {
+    "install_title": "Install this skill",
+    "copy_command": "Copy command",
+    "copied": "Copied!",
+    "source": "Source",
+    "author": "Author",
+    "tags": "Tags",
+    "role": "Role",
+    "downloads": "Downloads",
+    "back": "Back to browse"
+  },
+  "submit": {
+    "title": "Submit a Skill",
+    "subtitle": "Share your skill with the community. All submissions are reviewed before listing.",
+    "form": {
+      "name": "Skill Name",
+      "name_placeholder": "e.g. systematic-debugging",
+      "description": "Description (English)",
+      "description_placeholder": "What does this skill do?",
+      "description_zh": "Description (Chinese, optional)",
+      "description_zh_placeholder": "可选：用中文描述该 skill",
+      "role": "Role",
+      "role_placeholder": "Select a role",
+      "tags": "Tags",
+      "tags_placeholder": "debugging, api, testing (comma separated)",
+      "install_command": "Install Command",
+      "install_placeholder": "claude skills install skills.sh/your-skill",
+      "source_url": "GitHub Source URL",
+      "source_url_placeholder": "https://github.com/author/repo",
+      "author": "Your Name / Handle",
+      "author_placeholder": "GitHub username or display name",
+      "author_url": "Your Profile URL (optional)",
+      "author_url_placeholder": "https://github.com/username",
+      "submit": "Submit for Review",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Skill Submitted!",
+      "message": "Thank you! Your skill is under review and will appear in the marketplace once approved."
+    },
+    "error": "Submission failed. Please try again."
+  },
+  "roles": {
+    "pm": "Product Manager",
+    "frontend-dev": "Frontend Dev",
+    "backend-dev": "Backend Dev",
+    "qa": "QA Engineer",
+    "devops": "DevOps",
+    "designer": "UI/UX Designer",
+    "general": "General"
+  },
+  "footer": {
+    "tagline": "Built for the agent era",
+    "api_link": "API Docs",
+    "github_link": "GitHub"
+  },
+  "errors": {
+    "not_found": "Page not found",
+    "server_error": "Something went wrong",
+    "back_home": "Back to Home"
+  }
+}

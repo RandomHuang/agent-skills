@@ -1,0 +1,57 @@
+{
+  "name": "Agent Skills Marketplace",
+  "description": "Public marketplace for Claude Code agent skills",
+  "api_version": "1.0",
+  "base_url": "/api",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/skills",
+      "description": "List published skills. Query: ?role=&q=&page=",
+      "auth": "none",
+      "params": {
+        "role": "Filter by role (pm|frontend-dev|backend-dev|qa|devops|designer|general)",
+        "q": "Full-text search query",
+        "page": "Page number (default: 1, 20 per page)"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/skills/:id",
+      "description": "Get skill detail by ID. Increments download counter.",
+      "auth": "none"
+    },
+    {
+      "method": "POST",
+      "path": "/api/skills",
+      "description": "Submit a skill for review",
+      "auth": "none",
+      "body": {
+        "name": "string (required)",
+        "description": "string (required)",
+        "description_zh": "string (optional)",
+        "role": "SkillRole (required)",
+        "tags": "string[] (optional)",
+        "install_command": "string (required)",
+        "source_url": "string URL (required)",
+        "author": "string (required)",
+        "author_url": "string URL (optional)"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent/token",
+      "description": "Issue a permanent API token for agent use",
+      "auth": "none",
+      "body": {
+        "name": "string (optional) — agent name for identification"
+      },
+      "response": {
+        "token": "sk-agent-xxxxxxxxxxxxxxxx",
+        "created_at": "ISO timestamp",
+        "note": "Save this token. It will not be shown again."
+      },
+      "rate_limit": "100 requests/hour per token"
+    }
+  ]
+}

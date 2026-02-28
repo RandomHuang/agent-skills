@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# agent-skills
+
+A public marketplace for [Claude Code](https://claude.ai/claude-code) agent skills. Browse, submit, and install skills for your AI agent team.
+
+## Features
+
+- **Browse** skills by role (PM, Frontend Dev, Backend Dev, QA, DevOps, Designer)
+- **Search** by name, description, or tags
+- **Submit** skills for community review
+- **i18n** — English and Chinese (中文) supported
+- **Agent API** — Machine-readable REST API with token auth
+
+## Tech Stack
+
+- [Next.js 15](https://nextjs.org) (App Router)
+- [TypeScript](https://typescriptlang.org) (strict)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [next-intl](https://next-intl-docs.vercel.app) for i18n
+- [Firebase Firestore](https://firebase.google.com/docs/firestore) for data
+- Deployed on [Vercel](https://vercel.com)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Copy env example
+cp .env.local.example .env.local
+# Fill in your Firebase credentials
+
+# Run dev server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) (redirects to `/en`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `.env.local.example` for all required variables:
 
-## Learn More
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_FIREBASE_*` | Firebase Client SDK config |
+| `FIREBASE_ADMIN_PRIVATE_KEY` | Firebase Admin private key |
+| `FIREBASE_ADMIN_CLIENT_EMAIL` | Firebase Admin client email |
+| `FIREBASE_ADMIN_PROJECT_ID` | Firebase project ID |
+| `ADMIN_SECRET_KEY` | Secret key for `/api/admin/review` |
 
-To learn more about Next.js, take a look at the following resources:
+## API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All endpoints return `application/json`. See `/.well-known/agent.json` for machine-readable API description.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Method | Path | Auth | Description |
+|--------|------|------|-------------|
+| `GET` | `/api/skills` | None | List skills. Query: `?role=&q=&page=` |
+| `GET` | `/api/skills/:id` | None | Get skill detail |
+| `POST` | `/api/skills` | None | Submit skill for review |
+| `POST` | `/api/agent/token` | None | Issue permanent agent token |
+| `POST` | `/api/admin/review` | `X-Admin-Key` header | Approve/reject pending skill |
 
-## Deploy on Vercel
+### Agent Token
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Get a token
+curl -X POST https://agent-skills.vercel.app/api/agent/token \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-agent"}'
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Use token
+curl https://agent-skills.vercel.app/api/skills \
+  -H "Authorization: Bearer sk-agent-..."
+```
+
+Rate limit: **100 requests/hour** per token.
+
+## Firestore Collections
+
+- `skills/` — published, approved skills
+- `skills_pending/` — awaiting admin review
+- `agent_tokens/` — issued API tokens
+
+## License
+
+MIT
